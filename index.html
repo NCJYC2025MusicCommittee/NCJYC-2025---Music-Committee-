@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NCJYC 2025 - Music Committee</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --brand:#2f8f4e;
+      --brand-dark:#20693a;
+      --accent:#ffb94e;
+      --ink:#1f2937;
+      --muted:#64748b;
+      --bg:#f7fbf8;
+      --card:#ffffff;
+      --soft:#eaf6ee;
+      --shadow:0 10px 25px rgba(0,0,0,.08);
+      --radius:14px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{
+      font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+      line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+
+    /* ===== Navbar ===== */
+    .nav{
+      position: sticky; top:0; z-index:50;
+      background:#ffffffcc; backdrop-filter:saturate(180%) blur(8px);
+      border-bottom:1px solid #e7efe9;
+    }
+    .nav .wrap{
+      max-width:1200px; margin:0 auto; padding:10px 18px;
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; font-weight:700; color:var(--brand-dark);
+    }
+    .brand .dot{width:12px; height:12px; border-radius:50%; background:var(--accent)}
+    .links{display:flex; gap:18px; align-items:center}
+    .links a{font-weight:500; color:#1f2937}
+    .links a:hover{color:var(--brand)}
+    .dropdown{position:relative}
+    .drop-btn{display:flex; align-items:center; gap:6px; padding:8px 10px; border-radius:10px}
+    .drop-btn:hover{background:#f0f7f2}
+    .menu{
+      position:absolute; top:110%; right:0; background:var(--card); border:1px solid #e7efe9;
+      border-radius:12px; box-shadow:var(--shadow); padding:8px; display:none; min-width:200px;
+    }
+    .menu a{display:block; padding:10px 12px; border-radius:8px; color:#334155}
+    .menu a:hover{background:#f3faf5}
+    .dropdown.open .menu{display:block}
+
+    /* Mobile */
+    .hamburger{display:none; width:28px; height:22px; position:relative; cursor:pointer}
+    .hamburger span{
+      position:absolute; left:0; right:0; height:3px; background:var(--brand-dark); border-radius:3px;
+    }
+    .hamburger span:nth-child(1){top:0}
+    .hamburger span:nth-child(2){top:9px}
+    .hamburger span:nth-child(3){top:18px}
+    @media (max-width:900px){
+      .links{display:none}
+      .hamburger{display:block}
+      .mobile-panel{display:none; background:#fff; border-bottom:1px solid #e7efe9;}
+      .mobile-panel.open{display:block}
+      .mobile-panel a{display:block; padding:14px 18px; border-top:1px solid #f0f5f1}
+    }
+
+    /* ===== Hero ===== */
+    .hero{
+      background:linear-gradient(180deg,#ffffff, var(--soft));
+      padding:80px 18px 40px;
+    }
+    .hero .wrap{
+      max-width:1200px; margin:0 auto;
+      display:grid; grid-template-columns:1.15fr .85fr; gap:32px; align-items:center;
+    }
+    .eyebrow{color:var(--brand-dark); font-weight:700; letter-spacing:.06em; text-transform:uppercase; font-size:12px}
+    .hero h1{font-size:44px; line-height:1.15; margin:.35em 0 .4em; color:#0f172a}
+    .hero p{color:var(--muted); font-size:18px; margin:0 0 22px}
+    .cta{
+      display:inline-flex; align-items:center; gap:10px;
+      background:var(--brand); color:#fff; padding:12px 18px; border-radius:999px; font-weight:600;
+      box-shadow:0 6px 18px rgba(47,143,78,.25);
+    }
+    .cta:hover{background:var(--brand-dark)}
+    .subcta{margin-left:14px; font-weight:600; color:var(--brand-dark)}
+    .hero-visual{
+      background:#fff; border:1px solid #e7efe9; border-radius:20px; overflow:hidden; box-shadow:var(--shadow);
+      padding:10px;
+    }
+    .hero-visual img{width:100%; height:auto; border-radius:14px; display:block;}
+    @media (max-width:900px){
+      .hero .wrap{grid-template-columns:1fr}
+      .hero{padding-top:70px}
+    }
+
+    /* ===== Theme Focus Cards ===== */
+    .section{padding:40px 18px}
+    .section .wrap{max-width:1200px; margin:0 auto}
+    .section h2{font-size:32px; margin:0 0 18px; text-align:center; color:#0f172a}
+    .section p.lead{color:var(--muted); text-align:center; margin:0 auto 26px; max-width:720px}
+
+    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+
+    .card{
+      background:var(--card); border:1px solid #e7efe9; border-radius:16px; overflow:hidden; box-shadow:var(--shadow);
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .card:hover{transform:translateY(-4px); box-shadow:0 16px 30px rgba(0,0,0,.1)}
+    .thumb{height:180px; background:var(--soft); overflow:hidden}
+    .thumb img{width:100%; height:100%; object-fit:cover; display:block}
+    .card .content{padding:16px}
+    .card h3{margin:0 0 6px; font-size:18px}
+    .card p{margin:0; color:var(--muted); font-size:14px}
+
+ /* ===== Worship Together ===== */ 
+.worship {
+  background: var(--soft);
+  padding: 50px 18px;
+}
+
+.worship .wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: block; /* no grid needed since just text */
+}
+
+.worship h2 {
+  margin: 0 0 12px;
+}
+
+.worship ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.worship li {
+  margin: 12px 0; /* space between lines */
+  color: #334155;
+  display: flex;  /* keep icon + text inline */
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.worship .bag {
+  display: none; /* removed photo, hide the bag */
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .worship {
+    padding: 30px 12px;
+  }
+}
+
+
+    /* ===== Footer ===== */
+    footer{background:var(--brand-dark); color:#eaf6ee; padding:28px 18px;}
+    footer .wrap{max-width:1200px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr; gap:18px}
+    footer a{color:#eaf6ee}
+    @media (max-width:900px){ footer .wrap{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="wrap">
+      <div class="brand">
+        <span class="dot"></span>
+        <span>NCJYC 2025 • Music Committee</span>
+      </div>
+
+      <nav class="links" id="links">
+        <a href="Lineup.html">Worship Song Lineup</a>
+        <a href="Team.html">P&W Team - Churches</a>
+        <a href="special.html">Special Numbers</a>
+        <a href="checklist.html">Inventory</a>
+        <div class="dropdown" id="drop">
+          <a class="drop-btn" href="javascript:void(0)" onclick="toggleDrop()">More ▾</a>
+          <div class="menu">
+            <a href="tasks.html">Tasks</a>
+            <a href="ourteam.html">Our Team</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="hamburger" id="hamburger" onclick="toggleMobile()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">One Team • One Heart • Spirit-led</div>
+        <h1>Welcome to Northern Churches Joint Youth Camp 2025 - Music Committee Portal!</h1>
+        <p>A central hub for NCJYC 2025 lineups, responsibilities, and resources—keeping everyone connected and prepared to serve.”</p>
+        <a class="cta" href="theme-song.html">Youth Camp Theme Song</a>
+        <a class="subcta" href="tasks.html">Our Duties & Responsibilities →</a>
+      </div>
+
+      <div class="hero-visual">
+        <img src="1757140093260.png" alt="NCJYC 2025 banner">
+      </div>
+    </div>
+  </section>
+
+  <!-- THEME FOCUS -->
+  <section class="section">
+    <div class="wrap">
+      <h2>Theme Focus</h2>
+      <p class="lead">Grounded in our identity and mission as children of God.</p>
+
+      <div class="grid">
+        <article class="card">
+          <div class="thumb">
+            <img src="Photo1.jpg" alt="Understanding Identity">
+          </div>
+          <div class="content">
+            <h3>Understanding who we are in Christ</h3>
+            <p>Discovering our true identity as children of God.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb">
+            <img src="Photo2.jpeg" alt="Rejecting False Identities">
+          </div>
+          <div class="content">
+            <h3>Rejecting false identities given by the world</h3>
+            <p>Letting go of labels that don’t come from God.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb">
+            <img src="photo3.jpg" alt="Living Boldly">
+          </div>
+          <div class="content">
+            <h3>Living boldly as children of God</h3>
+            <p>Walking with courage, faith, and purpose in Christ.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Worship Together -->
+  <section class="worship">
+    <div class="wrap">
+      <div>
+        <h2>Worship Together!</h2>
+        <ul>
+          <li>🌱 <strong>Rooted in Worship:</strong> With Christ as our source, our music and plans take shape.</li>
+          <li>🙌️ <strong>Ready to Serve:</strong> Prayer at the foundation, passion in the heart, excellence in the offering.</li>
+          <li>📣 <strong>Connected as One:</strong> Together in step, together in service, together in Christ.</li>
+          <li>💛 <strong>United in Christ:</strong> Different gifts, one body, serving with one heart.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div>
+        <strong>NCJYC 2025 • Music Committee</strong><br>
+        Central hub for Praise & Worship planning.
+      </div>
+      <div>
+        <strong>Contact</strong><br>
+        music.committee.ncjyc2025@gmail.com
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleDrop(){
+      document.getElementById('drop').classList.toggle('open');
+    }
+    function toggleMobile(){
+      document.getElementById('mobile').classList.toggle('open');
+    }
+    document.addEventListener('click', (e)=>{
+      const d = document.getElementById('drop');
+      if(!d.contains(e.target)) d.classList.remove('open');
+    });
+  </script>
+</body>
+</html>
