@@ -311,6 +311,9 @@
     function toggleMobile(){
       document.getElementById('mobile-panel').classList.toggle('open');
     }
+    function toggleDrop(id){
+  document.getElementById(id).classList.toggle('open');
+}
     document.addEventListener('click', (e)=>{
       const d = document.getElementById('drop');
       if(!d.contains(e.target)) d.classList.remove('open');
@@ -318,5 +321,6 @@
   </script>
 </body>
 </html>
+
 
 
