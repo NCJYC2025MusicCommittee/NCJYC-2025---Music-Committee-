@@ -78,14 +78,6 @@
       flex-direction: column;
     }
     .mobile-panel a{display:block; padding:14px 18px; border-top:1px solid #f0f5f1; color:#1f2937;}
-    .mobile-dropdown .menu{
-      display:none;
-      flex-direction: column;
-      border:none;
-      box-shadow:none;
-      padding-left:10px;
-    }
-    .mobile-dropdown.open .menu{display:flex}
 
     @media (max-width:900px){
       .links{display:none}
@@ -197,13 +189,8 @@
       <a href="Team.html">P&W Team - Churches</a>
       <a href="special.html">Special Numbers</a>
       <a href="checklist.html">Inventory</a>
-      <div class="mobile-dropdown">
-        <span class="drop-btn" onclick="toggleMobileDropdown()">More ▾</span>
-        <div class="menu" id="mobile-dropdown-menu">
           <a href="tasks.html">Tasks</a>
           <a href="ourteam.html">Theme Song</a>
-        </div>
-      </div>
     </div>
   </header>
 
