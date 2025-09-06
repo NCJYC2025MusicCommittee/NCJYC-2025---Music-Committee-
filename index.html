@@ -60,22 +60,6 @@
     .menu a:hover{background:#f3faf5}
     .dropdown.open .menu{display:block}
 
-    /* Mobile */
-    .hamburger{display:none; width:28px; height:22px; position:relative; cursor:pointer}
-    .hamburger span{
-      position:absolute; left:0; right:0; height:3px; background:var(--brand-dark); border-radius:3px;
-    }
-    .hamburger span:nth-child(1){top:0}
-    .hamburger span:nth-child(2){top:9px}
-    .hamburger span:nth-child(3){top:18px}
-    @media (max-width:900px){
-      .links{display:none}
-      .hamburger{display:block}
-      .mobile-panel{display:none; background:#fff; border-bottom:1px solid #e7efe9;}
-      .mobile-panel.open{display:block}
-      .mobile-panel a{display:block; padding:14px 18px; border-top:1px solid #f0f5f1}
-    }
-
     /* ===== Hero ===== */
     .hero{
       background:linear-gradient(180deg,#ffffff, var(--soft));
@@ -206,21 +190,6 @@
 
   <!-- HERO -->
 
-  <nav class="mobile-panel" id="mobile-panel">
-  <a href="Lineup.html">Worship Song Lineup</a>
-  <a href="Team.html">P&W Team - Churches</a>
-  <a href="special.html">Special Numbers</a>
-  <a href="checklist.html">Inventory</a>
-  <div class="dropdown" id="drop-mobile">
-    <a class="drop-btn" href="javascript:void(0)" onclick="toggleDrop()">More ▾</a>
-    <div class="menu">
-      <a href="tasks.html">Tasks</a>
-      <a href="ourteam.html">Our Team</a>
-    </div>
-  </div>
-</nav>
-  <a class="drop-btn" href="javascript:void(0)" onclick="toggleDrop('drop-mobile')">More ▾</a>
-
   <section class="hero">
     <div class="wrap">
       <div>
@@ -310,12 +279,7 @@
     function toggleDrop(){
       document.getElementById('drop').classList.toggle('open');
     }
-    function toggleMobile(){
-      document.getElementById('mobile-panel').classList.toggle('open');
-    }
-    function toggleDrop(id){
-  document.getElementById(id).classList.toggle('open');
-}
+  
     document.addEventListener('click', (e)=>{
       const d = document.getElementById('drop');
       if(!d.contains(e.target)) d.classList.remove('open');
@@ -323,6 +287,7 @@
   </script>
 </body>
 </html>
+
 
 
 
