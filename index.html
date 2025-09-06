@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>NCJYC 2025 - Music Committee</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Removed viewport for mobile scaling -->
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -84,10 +84,6 @@
       padding:10px;
     }
     .hero-visual img{width:100%; height:auto; border-radius:14px; display:block;}
-    @media (max-width:900px){
-      .hero .wrap{grid-template-columns:1fr}
-      .hero{padding-top:70px}
-    }
 
     /* ===== Theme Focus Cards ===== */
     .section{padding:40px 18px}
@@ -96,7 +92,6 @@
     .section p.lead{color:var(--muted); text-align:center; margin:0 auto 26px; max-width:720px}
 
     .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
-    @media (max-width:900px){.grid{grid-template-columns:1fr}}
 
     .card{
       background:var(--card); border:1px solid #e7efe9; border-radius:16px; overflow:hidden; box-shadow:var(--shadow);
@@ -109,53 +104,27 @@
     .card h3{margin:0 0 6px; font-size:18px}
     .card p{margin:0; color:var(--muted); font-size:14px}
 
- /* ===== Worship Together ===== */ 
-.worship {
-  background: var(--soft);
-  padding: 50px 18px;
-}
+    /* ===== Worship Together ===== */
+    .worship {
+      background: var(--soft);
+      padding: 50px 18px;
+    }
 
-.worship .wrap {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: block; /* no grid needed since just text */
-}
+    .worship .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: block;
+    }
 
-.worship h2 {
-  margin: 0 0 12px;
-}
-
-.worship ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.worship li {
-  margin: 12px 0; /* space between lines */
-  color: #334155;
-  display: flex;  /* keep icon + text inline */
-  align-items: flex-start;
-  gap: 10px;
-}
-
-.worship .bag {
-  display: none; /* removed photo, hide the bag */
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .worship {
-    padding: 30px 12px;
-  }
-}
-
+    .worship h2 { margin: 0 0 12px; }
+    .worship ul { padding: 0; margin: 0; list-style: none; }
+    .worship li { margin: 12px 0; color: #334155; display: flex; align-items: flex-start; gap: 10px; }
+    .worship .bag { display: none; }
 
     /* ===== Footer ===== */
     footer{background:var(--brand-dark); color:#eaf6ee; padding:28px 18px;}
     footer .wrap{max-width:1200px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr; gap:18px}
     footer a{color:#eaf6ee}
-    @media (max-width:900px){ footer .wrap{grid-template-columns:1fr} }
   </style>
 </head>
 <body>
@@ -181,16 +150,16 @@
           </div>
         </div>
       </nav>
+    </div>
   </header>
 
   <!-- HERO -->
-
   <section class="hero">
     <div class="wrap">
       <div>
         <div class="eyebrow">One Team • One Heart • Spirit-led</div>
         <h1>Welcome to Northern Churches Joint Youth Camp 2025 - Music Committee Portal!</h1>
-        <p>A central hub for NCJYC 2025 lineups, responsibilities, and resources—keeping everyone connected and prepared to serve.”</p>
+        <p>A central hub for NCJYC 2025 lineups, responsibilities, and resources—keeping everyone connected and prepared to serve.</p>
         <a class="cta" href="theme-song.html">Youth Camp Theme Song</a>
         <a class="subcta" href="tasks.html">Our Duties & Responsibilities →</a>
       </div>
@@ -270,12 +239,14 @@
     </div>
   </footer>
 
+  <script>
+    function toggleDrop(){
+      document.getElementById('drop').classList.toggle('open');
+    }
+    document.addEventListener('click', (e)=>{
+      const d = document.getElementById('drop');
+      if(!d.contains(e.target)) d.classList.remove('open');
+    });
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
