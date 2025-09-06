@@ -46,6 +46,8 @@
       display:flex; align-items:center; gap:10px; font-weight:700; color:var(--brand-dark);
     }
     .brand .dot{width:12px; height:12px; border-radius:50%; background:var(--accent)}
+
+    /* Desktop links */
     .links{display:flex; gap:18px; align-items:center}
     .links a{font-weight:500; color:#1f2937}
     .links a:hover{color:var(--brand)}
@@ -60,7 +62,7 @@
     .menu a:hover{background:#f3faf5}
     .dropdown.open .menu{display:block}
 
-    /* Mobile */
+    /* Hamburger & mobile panel */
     .hamburger{display:none; width:28px; height:22px; position:relative; cursor:pointer}
     .hamburger span{
       position:absolute; left:0; right:0; height:3px; background:var(--brand-dark); border-radius:3px;
@@ -68,18 +70,27 @@
     .hamburger span:nth-child(1){top:0}
     .hamburger span:nth-child(2){top:9px}
     .hamburger span:nth-child(3){top:18px}
+
+    .mobile-panel{
+      display:none;
+      background:#fff;
+      border-bottom:1px solid #e7efe9;
+      flex-direction: column;
+    }
+    .mobile-panel a{display:block; padding:14px 18px; border-top:1px solid #f0f5f1; color:#1f2937;}
+    .mobile-dropdown .menu{
+      display:none;
+      flex-direction: column;
+      border:none;
+      box-shadow:none;
+      padding-left:10px;
+    }
+    .mobile-dropdown.open .menu{display:flex}
+
     @media (max-width:900px){
       .links{display:none}
       .hamburger{display:block}
-      .mobile-panel{
-        display:none;
-        background:#fff;
-        border-bottom:1px solid #e7efe9;
-      }
-      .mobile-panel.open{display:block}
-      .mobile-panel a{display:block; padding:14px 18px; border-top:1px solid #f0f5f1}
-      .mobile-panel .dropdown-mobile .menu{position:relative; border:none; box-shadow:none; padding:0;}
-      .mobile-panel .dropdown-mobile .menu a{border:none; padding-left:10px;}
+      .mobile-panel.open{display:flex}
     }
 
     /* ===== Hero ===== */
@@ -159,6 +170,7 @@
         <span>NCJYC 2025 • Music Committee</span>
       </div>
 
+      <!-- Desktop links -->
       <nav class="links" id="links">
         <a href="Lineup.html">Worship Song Lineup</a>
         <a href="Team.html">P&W Team - Churches</a>
@@ -173,6 +185,7 @@
         </div>
       </nav>
 
+      <!-- Hamburger -->
       <div class="hamburger" id="hamburger" onclick="toggleMobile()">
         <span></span><span></span><span></span>
       </div>
@@ -184,11 +197,11 @@
       <a href="Team.html">P&W Team - Churches</a>
       <a href="special.html">Special Numbers</a>
       <a href="checklist.html">Inventory</a>
-      <div class="dropdown-mobile">
-        <span class="drop-btn" onclick="toggleDropMobile()">More ▾</span>
-        <div class="menu" id="mobile-dropdown">
+      <div class="mobile-dropdown">
+        <span class="drop-btn" onclick="toggleMobileDropdown()">More ▾</span>
+        <div class="menu" id="mobile-dropdown-menu">
           <a href="tasks.html">Tasks</a>
-          <a href="ourteam.html">Our Team</a>
+          <a href="ourteam.html">Youth Camp Theme Song</a>
         </div>
       </div>
     </div>
@@ -279,31 +292,22 @@
     </div>
   </footer>
 
+  <!-- JS -->
   <script>
-    // Desktop dropdown
     function toggleDrop() {
       document.getElementById('drop').classList.toggle('open');
     }
-
-    // Mobile dropdown
-    function toggleDropMobile() {
-      document.getElementById('mobile-dropdown').classList.toggle('open');
-    }
-
-    // Mobile menu
     function toggleMobile() {
       document.getElementById('mobile-panel').classList.toggle('open');
     }
-
-    // Close desktop dropdown if clicked outside
-    document.addEventListener('click', (e) => {
+    function toggleMobileDropdown() {
+      document.querySelector('.mobile-dropdown').classList.toggle('open');
+    }
+    // Close desktop dropdown when clicking outside
+    document.addEventListener('click', function(e) {
       const drop = document.getElementById('drop');
-      const btn = drop.querySelector('.drop-btn');
-      if (!drop.contains(e.target) && e.target !== btn) {
-        drop.classList.remove('open');
-      }
+      if (!drop.contains(e.target)) drop.classList.remove('open');
     });
   </script>
-
 </body>
 </html>
