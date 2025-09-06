@@ -18,7 +18,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 15px 20px;
-      background: #222;
+      background: #1f7a2a;
       border-radius: 8px 8px 0 0;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
       margin-bottom: 0;
@@ -26,16 +26,16 @@
     }
 
     /* Signature underline */
-    nav::after {
-      content: "";
-      position: absolute;
-      bottom: -4px;
-      left: 20px;
-      width: 140px;
-      height: 2px;
-      background: #1f7a2a;
-      border-radius: 2px;
-    }
+  nav::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 20px;
+  width: 140px;
+  height: 2px;
+  background: #1f7a2a; /* darker green underline */
+  border-radius: 2px;
+}
 
     .nav-left h1 {
       margin: 0;
@@ -51,8 +51,8 @@
     .nav-right .home-button {
       display: inline-block;
       padding: 10px 22px;
-      border: 2px solid #de2828;
-      color: #de2828;
+      border: 2px solid #ffffff;
+      color: #ffffff;
       background: transparent;
       text-decoration: none;
       font-weight: 600;
@@ -70,13 +70,13 @@
       left: 22px;
       width: 0%;
       height: 2px;
-      background: #de2828;
+      background: #ffffff;
       transition: width 0.3s ease;
     }
 
     .nav-right .home-button:hover {
       color: white;
-      background: #de2828;
+      background: #1f7a2a;
     }
 
     .nav-right .home-button:hover::after {
