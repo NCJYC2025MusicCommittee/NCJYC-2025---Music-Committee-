@@ -1,9 +1,9 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>NCJYC 2025 - Music Committee</title>
-  <!-- Removed viewport for mobile scaling -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -50,7 +50,7 @@
     .links a{font-weight:500; color:#1f2937}
     .links a:hover{color:var(--brand)}
     .dropdown{position:relative}
-    .drop-btn{display:flex; align-items:center; gap:6px; padding:8px 10px; border-radius:10px}
+    .drop-btn{display:flex; align-items:center; gap:6px; padding:8px 10px; border-radius:10px; cursor:pointer;}
     .drop-btn:hover{background:#f0f7f2}
     .menu{
       position:absolute; top:110%; right:0; background:var(--card); border:1px solid #e7efe9;
@@ -59,6 +59,28 @@
     .menu a{display:block; padding:10px 12px; border-radius:8px; color:#334155}
     .menu a:hover{background:#f3faf5}
     .dropdown.open .menu{display:block}
+
+    /* Mobile */
+    .hamburger{display:none; width:28px; height:22px; position:relative; cursor:pointer}
+    .hamburger span{
+      position:absolute; left:0; right:0; height:3px; background:var(--brand-dark); border-radius:3px;
+    }
+    .hamburger span:nth-child(1){top:0}
+    .hamburger span:nth-child(2){top:9px}
+    .hamburger span:nth-child(3){top:18px}
+    @media (max-width:900px){
+      .links{display:none}
+      .hamburger{display:block}
+      .mobile-panel{
+        display:none;
+        background:#fff;
+        border-bottom:1px solid #e7efe9;
+      }
+      .mobile-panel.open{display:block}
+      .mobile-panel a{display:block; padding:14px 18px; border-top:1px solid #f0f5f1}
+      .mobile-panel .dropdown-mobile .menu{position:relative; border:none; box-shadow:none; padding:0;}
+      .mobile-panel .dropdown-mobile .menu a{border:none; padding-left:10px;}
+    }
 
     /* ===== Hero ===== */
     .hero{
@@ -84,6 +106,10 @@
       padding:10px;
     }
     .hero-visual img{width:100%; height:auto; border-radius:14px; display:block;}
+    @media (max-width:900px){
+      .hero .wrap{grid-template-columns:1fr}
+      .hero{padding-top:70px}
+    }
 
     /* ===== Theme Focus Cards ===== */
     .section{padding:40px 18px}
@@ -92,6 +118,7 @@
     .section p.lead{color:var(--muted); text-align:center; margin:0 auto 26px; max-width:720px}
 
     .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
 
     .card{
       background:var(--card); border:1px solid #e7efe9; border-radius:16px; overflow:hidden; box-shadow:var(--shadow);
@@ -104,18 +131,12 @@
     .card h3{margin:0 0 6px; font-size:18px}
     .card p{margin:0; color:var(--muted); font-size:14px}
 
-    /* ===== Worship Together ===== */
+    /* ===== Worship Together ===== */ 
     .worship {
       background: var(--soft);
       padding: 50px 18px;
     }
-
-    .worship .wrap {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: block;
-    }
-
+    .worship .wrap { max-width: 1100px; margin: 0 auto; display: block; }
     .worship h2 { margin: 0 0 12px; }
     .worship ul { padding: 0; margin: 0; list-style: none; }
     .worship li { margin: 12px 0; color: #334155; display: flex; align-items: flex-start; gap: 10px; }
@@ -125,6 +146,7 @@
     footer{background:var(--brand-dark); color:#eaf6ee; padding:28px 18px;}
     footer .wrap{max-width:1200px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr; gap:18px}
     footer a{color:#eaf6ee}
+    @media (max-width:900px){ footer .wrap{grid-template-columns:1fr} }
   </style>
 </head>
 <body>
@@ -143,13 +165,32 @@
         <a href="special.html">Special Numbers</a>
         <a href="checklist.html">Inventory</a>
         <div class="dropdown" id="drop">
-          <a class="drop-btn" href="javascript:void(0)" onclick="toggleDrop()">More ▾</a>
+          <span class="drop-btn" onclick="toggleDrop()">More ▾</span>
           <div class="menu">
             <a href="tasks.html">Tasks</a>
             <a href="ourteam.html">Our Team</a>
           </div>
         </div>
       </nav>
+
+      <div class="hamburger" id="hamburger" onclick="toggleMobile()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <!-- Mobile Panel -->
+    <div class="mobile-panel" id="mobile-panel">
+      <a href="Lineup.html">Worship Song Lineup</a>
+      <a href="Team.html">P&W Team - Churches</a>
+      <a href="special.html">Special Numbers</a>
+      <a href="checklist.html">Inventory</a>
+      <div class="dropdown-mobile">
+        <span class="drop-btn" onclick="toggleDropMobile()">More ▾</span>
+        <div class="menu" id="mobile-dropdown">
+          <a href="tasks.html">Tasks</a>
+          <a href="ourteam.html">Our Team</a>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -163,7 +204,6 @@
         <a class="cta" href="theme-song.html">Youth Camp Theme Song</a>
         <a class="subcta" href="tasks.html">Our Duties & Responsibilities →</a>
       </div>
-
       <div class="hero-visual">
         <img src="1757140093260.png" alt="NCJYC 2025 banner">
       </div>
@@ -240,13 +280,30 @@
   </footer>
 
   <script>
-    function toggleDrop(){
+    // Desktop dropdown
+    function toggleDrop() {
       document.getElementById('drop').classList.toggle('open');
     }
-    document.addEventListener('click', (e)=>{
-      const d = document.getElementById('drop');
-      if(!d.contains(e.target)) d.classList.remove('open');
+
+    // Mobile dropdown
+    function toggleDropMobile() {
+      document.getElementById('mobile-dropdown').classList.toggle('open');
+    }
+
+    // Mobile menu
+    function toggleMobile() {
+      document.getElementById('mobile-panel').classList.toggle('open');
+    }
+
+    // Close desktop dropdown if clicked outside
+    document.addEventListener('click', (e) => {
+      const drop = document.getElementById('drop');
+      const btn = drop.querySelector('.drop-btn');
+      if (!drop.contains(e.target) && e.target !== btn) {
+        drop.classList.remove('open');
+      }
     });
   </script>
+
 </body>
 </html>
