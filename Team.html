@@ -5,9 +5,9 @@
 <title>P&W Team - List of Churches</title>
 <style>
 body {
-  font-family: Arial;
+  font-family: "Poppins", sans-serif;
   background: #ffffff;
-  margin: 20px;
+  margin: 0;
   color: #333;
 }
 
@@ -18,127 +18,83 @@ nav {
   align-items: center;
   padding: 15px 20px;
   background: #1f7a2a;
-  border-radius: 8px 8px 0 0;
+  border-radius: 0 0 8px 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-  position: relative;
 }
-
-nav::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 20px;
-  width: 140px;
-  height: 2px;
-  background: #1f7a2a;
-  border-radius: 2px;
-}
-
 .nav-left h1 {
   margin: 0;
   color: white;
   font-weight: 600;
-  font-size: 2rem;
-  letter-spacing: 1px;
+  font-size: 1.4rem;
 }
-
 .nav-right .home-button {
-  display: inline-block;
-  padding: 10px 22px;
+  padding: 8px 20px;
   border: 2px solid #ffffff;
   color: #ffffff;
-  background: transparent;
   text-decoration: none;
   font-weight: 600;
-  font-size: 1rem;
-  border-radius: 30px;
+  font-size: 0.9rem;
+  border-radius: 25px;
   transition: all 0.3s ease;
 }
-
 .nav-right .home-button:hover {
-  color: #1f7a2a;
   background: #ffffff;
-  border-color: #ffffff;
-  transform: translateY(-2px);
+  color: #1f7a2a;
 }
 
-/* Desktop Table */
-.table-desktop {
-  width: 100%;
-  max-width: 1160px;
-  margin: 30px auto;
-  border-collapse: collapse;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-  table-layout: fixed;
-}
-
-.table-desktop th, .table-desktop td {
-  border: 1px solid #cccccc;
-  padding: 14px 18px;
+/* Section Heading */
+.day-heading {
   text-align: center;
-  vertical-align: middle;
-  font-size: 1rem;
-  color: #ffffff;
+  margin: 40px 0 15px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f7a2a;
 }
 
-.table-desktop td {
-  border: 1px solid #cccccc;
-  padding: 14px 18px;
-  text-align: left;
-  vertical-align: middle;
-  font-size: 1rem;
-  color: #000000;
-}
-
-/* Row striping */
-.table-desktop tbody tr:nth-child(even) td { background-color: #f5f5f5; }
-
-/* Header colors */
-.role { border: 1px solid #cccccc; padding: 10px 8px; text-align: left; vertical-align: middle; font-size: 1rem; width: 4in;}
-.day1-sub { background-color: #de2828; color: white; }
-.day2-sub { background-color: #2c9934; color: white; }
-.day3-sub { background-color: #0d6ca1; color: white; }
-
-/* Column color accents */
-.table-desktop tbody td:nth-child(2), tbody td:nth-child(3) { background-color: #ffe5e5; }
-.table-desktop tbody td:nth-child(4), tbody td:nth-child(5) { background-color: #e5f5e5; }
-.table-desktop tbody td:nth-child(6), tbody td:nth-child(7) { background-color: #e5ecff; }
-
-/* Row hover effect */
-.table-desktop tbody tr:hover td:nth-child(2), tbody tr:hover td:nth-child(3) { background-color: #ffcccc; }
-.table-desktop tbody tr:hover td:nth-child(4), tbody tr:hover td:nth-child(5) { background-color: #c8e6c8; }
-.table-desktop tbody tr:hover td:nth-child(6), tbody tr:hover td:nth-child(7) { background-color: #ccd9ff; }
-.table-desktop tbody tr:hover td:first-child { background-color: #eeeeee; }
-
-/* Mobile Table */
-.table-mobile {
-  display: none; /* hidden on desktop */
-  width: 100%;
-  margin: 20px auto;
+/* Table Style */
+.table-day {
+  width: 95%;
+  max-width: 900px;
+  margin: 0 auto 40px;
   border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  border-radius: 10px;
+  overflow: hidden;
 }
-
-.table-mobile .role {
-  background: #1f7a2a;
-  color: white;
-  padding: 8px;
+.table-day th, .table-day td {
+  padding: 12px 16px;
   text-align: left;
-  font-weight: bold;
+  font-size: 0.95rem;
+}
+.table-day th {
+  background: #1f7a2a;
+  color: #fff;
+  font-weight: 600;
+}
+.table-day tr:nth-child(even) {
+  background: #f9f9f9;
+}
+.table-day tr:hover {
+  background: #f1f1f1;
 }
 
-.table-mobile td {
-  border: 1px solid #ccc;
-  padding: 8px;
-}
-
+/* Responsive */
 @media (max-width: 700px) {
-  .table-desktop { display: none; } /* hide desktop table on small screens */
-  .table-mobile { display: table; } /* show mobile table */
-  nav { flex-direction: column; align-items: flex-start; gap: 10px; }
-  .nav-right .home-button { align-self: stretch; text-align: center; padding: 12px 0; }
+  .nav-left h1 {
+    font-size: 1rem;
+  }
+  .nav-right .home-button {
+    font-size: 0.8rem;
+    padding: 6px 14px;
+  }
+  .day-heading {
+    font-size: 1.2rem;
+  }
+  .table-day th, .table-day td {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
 }
 </style>
 </head>
@@ -146,43 +102,75 @@ nav::after {
 
 <nav>
   <div class="nav-left">
-    <h1>Praise & Worship Team - Participating Churches</h1>
+    <h1>P&W Team - Participating Churches</h1>
   </div>
   <div class="nav-right">
     <a class="home-button" href="index.html">Back to Home</a>
   </div>
 </nav>
 
-<!-- Desktop Table -->
-<table class="table-desktop">
+<!-- Day 1 -->
+<h2 class="day-heading">Day 1 - December 28, 2025</h2>
+<table class="table-day">
   <thead>
     <tr>
-      <th class="day1-sub" rowspan="2">Role</th>
-      <th class="day1-sub" colspan="2">Church</th>
-      <th class="day2-sub" colspan="2">Church</th>
-      <th class="day3-sub" colspan="2">Church</th>
-    </tr>
-    <tr>
-      <th class="day1-sub">Day 1 Morning</th>
-      <th class="day1-sub">Day 1 Evening</th>
-      <th class="day2-sub">Day 2 Morning</th>
-      <th class="day2-sub">Day 2 Evening</th>
-      <th class="day3-sub">Day 3 Morning</th>
-      <th class="day3-sub">Day 3 Evening</th>
+      <th></th>
+      <th>Morning</th>
+      <th>Evening</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td class="role">Song Leader</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td class="role">Back-up Singers</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td class="role">Acoustic Guitarist</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td class="role">Electric Guitarist</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td class="role">Bassist</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td class="role">Keyboardist</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td class="role">Drummer</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>Song Leader</td><td></td><td></td></tr>
+    <tr><td>Back-up Singers</td><td></td><td></td></tr>
+    <tr><td>Acoustic Guitarist</td><td></td><td></td></tr>
+    <tr><td>Electric Guitarist</td><td></td><td></td></tr>
+    <tr><td>Bassist</td><td></td><td></td></tr>
+    <tr><td>Keyboardist</td><td></td><td></td></tr>
+    <tr><td>Drummer</td><td></td><td></td></tr>
   </tbody>
 </table>
 
-<!-- Mobile Table -->
-<table class="table-mobile">
+<!-- Day 2 -->
+<h2 class="day-heading">Day 2 - December 29, 2025</h2>
+<table class="table-day">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Morning</th>
+      <th>Evening</th>
+    </tr>
+  </thead>
   <tbody>
-    <tr><td class="role">Song Leader</td><
+    <tr><td>Song Leader</td><td></td><td></td></tr>
+    <tr><td>Back-up Singers</td><td></td><td></td></tr>
+    <tr><td>Acoustic Guitarist</td><td></td><td></td></tr>
+    <tr><td>Electric Guitarist</td><td></td><td></td></tr>
+    <tr><td>Bassist</td><td></td><td></td></tr>
+    <tr><td>Keyboardist</td><td></td><td></td></tr>
+    <tr><td>Drummer</td><td></td><td></td></tr>
+  </tbody>
+</table>
+
+<!-- Day 3 -->
+<h2 class="day-heading">Day 3 - December 30, 2025</h2>
+<table class="table-day">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Morning</th>
+      <th>Evening</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Song Leader</td><td></td><td></td></tr>
+    <tr><td>Back-up Singers</td><td></td><td></td></tr>
+    <tr><td>Acoustic Guitarist</td><td></td><td></td></tr>
+    <tr><td>Electric Guitarist</td><td></td><td></td></tr>
+    <tr><td>Bassist</td><td></td><td></td></tr>
+    <tr><td>Keyboardist</td><td></td><td></td></tr>
+    <tr><td>Drummer</td><td></td><td></td></tr>
+  </tbody>
+</table>
+
+</body>
+</html>
