@@ -101,9 +101,13 @@
       display:inline-flex; align-items:center; gap:10px;
       background:var(--brand); color:#fff; padding:12px 18px; border-radius:999px; font-weight:600;
       box-shadow:0 6px 18px rgba(47,143,78,.25);
+      white-space: nowrap; /* Prevents wrapping */
     }
     .cta:hover{background:var(--brand-dark)}
-    .subcta{margin-left:14px; font-weight:600; color:var(--brand-dark)}
+    .subcta{
+      margin-left:14px; font-weight:600; color:var(--brand-dark);
+      white-space: nowrap; /* Prevents wrapping */
+    }
     .hero-visual{
       background:#fff; border:1px solid #e7efe9; border-radius:20px; overflow:hidden; box-shadow:var(--shadow);
       padding:10px;
@@ -184,7 +188,7 @@
           <span class="drop-btn" onclick="toggleDrop()">More ▾</span>
           <div class="menu">
             <a href="tasks.html">Tasks</a>
-            <a href="ourteam.html">Theme Song</a>
+            <a href="theme-song.html">Theme Song</a>
           </div>
         </div>
       </nav>
@@ -202,7 +206,7 @@
       <a href="special.html">Special Numbers</a>
       <a href="checklist.html">Inventory</a>
       <a href="tasks.html">Tasks</a>
-      <a href="ourteam.html">Theme Song</a>
+      <a href="theme-song.html">Theme Song</a>
     </div>
   </header>
 
