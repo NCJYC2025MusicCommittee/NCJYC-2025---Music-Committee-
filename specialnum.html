@@ -17,61 +17,17 @@
 
     /* HERO */
     .hero {
-      background: 
-        linear-gradient(rgba(46, 125, 50, 0.6), rgba(46, 125, 50, 0.6)),
-        url('music.jpg') center/cover no-repeat;
+      background: linear-gradient(rgba(46,125,50,0.6), rgba(46,125,50,0.6)), url('music.jpg') center/cover no-repeat;
       color: #fff;
       text-align: center;
       padding: 120px 20px;
-      position: relative;
     }
-    .hero h1, .hero p {
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-    }
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 15px;
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      font-weight: 400;
-      letter-spacing: 0.5px;
-    }
+    .hero h1 { font-size: 3rem; margin-bottom: 15px; font-weight: 600; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); }
+    .hero p { font-size: 1.2rem; font-weight: 400; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); }
 
     /* SECTION */
-    .section {
-      padding: 60px 20px;
-      background: #f9f9f9;
-    }
-    .numbers {
-      max-width: 900px;
-      margin: 0 auto;
-      display: grid;
-      gap: 30px;
-      justify-items: center;
-    }
-
-    /* Top row: 3 columns */
-    .top-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-      width: 100%;
-      justify-items: center;
-    }
-
-    /* Bottom row: 2 cards + home button */
-    .bottom-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr); /* 3 columns for button alignment */
-      gap: 30px;
-      width: 100%;
-      justify-items: center;
-      margin-top: 30px;
-      align-items: center; /* vertically align button */
-    }
+    .section { padding: 60px 20px; background: #f9f9f9; }
+    .numbers { max-width: 900px; margin: 0 auto; display: grid; gap: 30px; justify-items: center; }
 
     /* Card styling */
     .card {
@@ -81,28 +37,7 @@
       text-align: center;
       border: 1px solid #e6e6e6;
       box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
       width: 250px;
-    }
-    .card::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: rgba(46,125,50,0.05);
-      transform: rotate(45deg);
-      transition: all 0.4s ease;
-    }
-    .card:hover::before {
-      background: rgba(46,125,50,0.15);
-    }
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 14px 28px rgba(0,0,0,0.12);
     }
     .card .icon {
       font-size: 3rem;
@@ -114,23 +49,9 @@
       height: 70px;
       line-height: 70px;
       border-radius: 50%;
-      transition: all 0.3s ease;
     }
-    .card:hover .icon {
-      background: #c8e6c9;
-      transform: scale(1.1);
-    }
-    .card h2 {
-      font-size: 1.4rem;
-      margin-bottom: 10px;
-      color: #2e7d32;
-      font-weight: 500;
-    }
-    .card p {
-      font-size: 1rem;
-      color: #555;
-      line-height: 1.5;
-    }
+    .card h2 { font-size: 1.4rem; margin-bottom: 10px; color: #2e7d32; font-weight: 500; }
+    .card p { font-size: 1rem; color: #555; line-height: 1.5; }
 
     /* Go Back button */
     .go-back a {
@@ -141,51 +62,16 @@
       flex-direction: column;
       align-items: center;
     }
-    .home-icon {
-      width: 120px; /* make the icon bigger */
-      height: auto;
-      display: block;
-      margin-bottom: 10px;
-    }
-    .go-back p {
-      font-size: 1.2rem;
-      margin: 0;
-    }
+    .home-icon { width: 120px; height: auto; margin-bottom: 10px; }
+    .go-back p { font-size: 1.2rem; margin: 0; }
 
     /* Footer */
-    footer {
-      background: linear-gradient(135deg, #2e7d32, #4caf50);
-      color: #fff;
-      text-align: center;
-      padding: 30px 20px;
-      margin-top: 50px;
-    }
-    footer p {
-      margin: 0;
-      font-size: 0.95rem;
-      letter-spacing: 0.5px;
-    }
+    footer { background: linear-gradient(135deg, #2e7d32, #4caf50); color: #fff; text-align: center; padding: 30px 20px; }
 
-    /* Responsive */
+    /* Responsive: stack all cards vertically on small screens */
     @media (max-width: 900px) {
-      .top-row {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .bottom-row {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-      .go-back {
-        margin-top: 20px;
-      }
-    }
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 2.2rem;
-      }
-      .hero p {
-        font-size: 1rem;
-      }
+      .numbers { display: grid; grid-template-columns: 1fr; gap: 20px; }
+      .card { width: 100%; max-width: 400px; }
     }
   </style>
 </head>
@@ -193,16 +79,13 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-content">
-      <h1>Special Numbers</h1>
-      <p>Praising God Through Music • NCJYC 2025</p>
-    </div>
+    <h1>Special Numbers</h1>
+    <p>Praising God Through Music • NCJYC 2025</p>
   </section>
 
   <!-- SPECIAL NUMBERS -->
   <section class="section">
-    <!-- Top row: 3 cards -->
-    <div class="numbers top-row">
+    <div class="numbers">
       <div class="card">
         <div class="icon">🌅</div>
         <h2>Day 1 Morning</h2>
@@ -218,10 +101,6 @@
         <h2>Day 2 Evening</h2>
         <p>Evening program musical offering.</p>
       </div>
-    </div>
-
-    <!-- Bottom row: 2 cards + home button -->
-    <div class="numbers bottom-row">
       <div class="card">
         <div class="icon">🎶</div>
         <h2>Day 3 Evening</h2>
@@ -232,7 +111,6 @@
         <h2>Evening</h2>
         <p>Final evening worship presentation.</p>
       </div>
-      <!-- Go Back button beside box 5 -->
       <div class="go-back">
         <a href="index.html">
           <img src="home.svg" alt="Home" class="home-icon">
