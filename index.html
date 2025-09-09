@@ -150,6 +150,18 @@
     footer .wrap{max-width:1200px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr; gap:18px}
     footer a{color:#eaf6ee}
     @media (max-width:900px){ footer .wrap{grid-template-columns:1fr} }
+
+    /* ===== Mobile tweaks for buttons ===== */
+    @media (max-width:900px){
+      .cta {
+        font-size: 14px;
+        padding: 10px 14px;
+      }
+      .subcta {
+        font-size: 13px;
+        margin-left: 10px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -189,8 +201,8 @@
       <a href="Team.html">P&W Team - Churches</a>
       <a href="special.html">Special Numbers</a>
       <a href="checklist.html">Inventory</a>
-          <a href="tasks.html">Tasks</a>
-          <a href="ourteam.html">Theme Song</a>
+      <a href="tasks.html">Tasks</a>
+      <a href="ourteam.html">Theme Song</a>
     </div>
   </header>
 
@@ -287,9 +299,6 @@
     function toggleMobile() {
       document.getElementById('mobile-panel').classList.toggle('open');
     }
-    function toggleMobileDropdown() {
-      document.querySelector('.mobile-dropdown').classList.toggle('open');
-    }
     // Close desktop dropdown when clicking outside
     document.addEventListener('click', function(e) {
       const drop = document.getElementById('drop');
@@ -298,4 +307,3 @@
   </script>
 </body>
 </html>
-
