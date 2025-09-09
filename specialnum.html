@@ -29,6 +29,12 @@
     .section { padding: 60px 20px; background: #f9f9f9; }
     .numbers { max-width: 900px; margin: 0 auto; display: grid; gap: 30px; justify-items: center; }
 
+    /* Top row: 3 columns */
+    .top-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; width: 100%; justify-items: center; }
+
+    /* Bottom row: 2 cards + home button */
+    .bottom-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; width: 100%; justify-items: center; align-items: center; margin-top: 30px; }
+
     /* Card styling */
     .card {
       background: #fff;
@@ -68,10 +74,12 @@
     /* Footer */
     footer { background: linear-gradient(135deg, #2e7d32, #4caf50); color: #fff; text-align: center; padding: 30px 20px; }
 
-    /* Responsive: stack all cards vertically on small screens */
+    /* Responsive for mobile */
     @media (max-width: 900px) {
-      .numbers { display: grid; grid-template-columns: 1fr; gap: 20px; }
+      .top-row { grid-template-columns: 1fr; }
+      .bottom-row { grid-template-columns: 1fr; gap: 20px; }
       .card { width: 100%; max-width: 400px; }
+      .go-back { margin-top: 20px; grid-column: auto; }
     }
   </style>
 </head>
@@ -85,7 +93,8 @@
 
   <!-- SPECIAL NUMBERS -->
   <section class="section">
-    <div class="numbers">
+    <!-- Top row: 3 cards -->
+    <div class="numbers top-row">
       <div class="card">
         <div class="icon">🌅</div>
         <h2>Day 1 Morning</h2>
@@ -101,6 +110,10 @@
         <h2>Day 2 Evening</h2>
         <p>Evening program musical offering.</p>
       </div>
+    </div>
+
+    <!-- Bottom row: 2 cards + Go Back button -->
+    <div class="numbers bottom-row">
       <div class="card">
         <div class="icon">🎶</div>
         <h2>Day 3 Evening</h2>
