@@ -1,387 +1,270 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>NCJYC 2025 - Music Committee</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>NCJYC 2025 - Music Committee</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
 
-  <style>
-    :root{
-      --brand:#2f8f4e;
-      --brand-dark:#20693a;
-      --accent:#ffb94e;
-      --ink:#1f2937;
-      --muted:#64748b;
-      --bg:#f7fbf8;
-      --card:#ffffff;
-      --soft:#eaf6ee;
-      --shadow:0 10px 25px rgba(0,0,0,.08);
-      --radius:14px;
+    body {
+        font-family: Arial, sans-serif;
     }
+	
+	table {
+        width: calc(100% - 2in);
+        margin-left: 1in;
+        margin-right: 1in;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        table-layout: fixed;
+	}
 
-    *{box-sizing:border-box}
-    html,body{margin:0}
-    body{
-      font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background:var(--bg);
-      color:var(--ink);
-      line-height:1.6;
+    th, td {
+        border: 1px solid #cccccc;
+        padding: 10px;
+        text-align: center;
+        word-wrap: break-word;
     }
-    a{color:inherit;text-decoration:none}
-
-    /* ===== Navbar ===== */
-    .nav{
-      position: sticky; top:0; z-index:50;
-      background:#ffffffcc; backdrop-filter:saturate(180%) blur(8px);
-      border-bottom:1px solid #e7efe9;
-    }
-    .nav .wrap{
-      max-width:1200px; margin:0 auto; padding:10px 18px;
-      display:flex; align-items:center; justify-content:space-between; gap:14px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:10px; font-weight:700; color:var(--brand-dark);
-    }
-    .brand .dot{width:12px; height:12px; border-radius:50%; background:var(--accent)}
-
-    /* Desktop links */
-    .links{display:flex; gap:18px; align-items:center}
-    .links a{font-weight:500; color:#1f2937}
-    .links a:hover{color:var(--brand)}
-    .dropdown{position:relative}
-    .drop-btn{display:flex; align-items:center; gap:6px; padding:8px 10px; border-radius:10px; cursor:pointer;}
-    .drop-btn:hover{background:#f0f7f2}
-    .menu{
-      position:absolute; top:110%; right:0; background:var(--card); border:1px solid #e7efe9;
-      border-radius:12px; box-shadow:var(--shadow); padding:8px; display:none; min-width:200px;
-    }
-    .menu a{display:block; padding:10px 12px; border-radius:8px; color:#334155}
-    .menu a:hover{background:#f3faf5}
-    .dropdown.open .menu{display:block}
-
-    /* Hamburger & mobile panel */
-    .hamburger{display:none; width:28px; height:22px; position:relative; cursor:pointer}
-    .hamburger span{
-      position:absolute; left:0; right:0; height:1px; background:var(--brand-dark); border-radius:3px;
-    }
-    .hamburger span:nth-child(1){top:0}
-    .hamburger span:nth-child(2){top:9px}
-    .hamburger span:nth-child(3){top:18px}
-
-    .mobile-panel{
-      display:none;
-      background:#fff;
-      border-bottom:1px solid #e7efe9;
-      flex-direction: column;
-    }
-    .mobile-panel a{display:block; padding:14px 18px; border-top:0px solid #f0f5f1; color:#1f2937;}
-
-    @media (max-width:900px){
-      .links{display:none}
-      .hamburger{display:block}
-      .mobile-panel.open{display:flex}
+	
+	tr:hover {
+        background-color: #d9dddc; /* moderate gray highlight */
     }
 
-    /* ===== Hero ===== */
-    .hero {
-      background: linear-gradient(180deg,#ffffff, var(--soft));
-      padding: 60px 18px 40px;
-    }
-    .hero .wrap {
-      max-width: 1200px; margin: 0 auto;
-      display: grid; grid-template-columns: 1.15fr .85fr; 
-      gap: 28px; align-items: center;
-    }
-    .eyebrow{color:var(--brand-dark); font-weight:700; letter-spacing:.06em; text-transform:uppercase; font-size:12px}
-    .hero h1{font-size:44px; line-height:1.15; margin:.35em 0 .4em; color:#0f172a}
-    .hero p{color:var(--muted); font-size:18px; margin:0 0 22px}
-    .cta{
-      display:inline-flex; align-items:center; gap:10px;
-      background:var(--brand); color:#fff; padding:12px 18px; border-radius:999px; font-weight:600;
-      box-shadow:0 6px 18px rgba(47,143,78,.25);
-      white-space: nowrap;
-    }
-    .cta:hover{background:var(--brand-dark)}
-    .subcta{
-      margin-left:14px; font-weight:600; color:var(--brand-dark);
-      margin-top: 5px;
-      white-space: nowrap;
-    }
-    .hero-visual{
-      background:#fff; border:1px solid #e7efe9; border-radius:20px; overflow:hidden; box-shadow:var(--shadow);
-      padding:10px;
-    }
-    .hero-visual img{width:100%; height:auto; border-radius:14px; display:block;}
-
-    /* ===== Theme Focus Cards ===== */
-    .section {
-      padding: 50px 18px;
-    }
-    .section .wrap{max-width:1200px; margin:0 auto}
-    .section h2{font-size:32px; margin:0 0 14px; text-align:center; color:#0f172a}
-    .section p.lead{color:var(--muted); text-align:center; margin:0 auto 18px; max-width:520px}
-
-    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
-    @media (max-width:900px){.grid{grid-template-columns:1fr}}
-
-    .card{
-      background:var(--card); border:1px solid #e7efe9; border-radius:16px; overflow:hidden; box-shadow:var(--shadow);
-      transition:transform .18s ease, box-shadow .18s ease;
-    }
-    .card:hover{transform:translateY(-4px); box-shadow:0 16px 30px rgba(0,0,0,.1)}
-    .thumb{height:180px; background:var(--soft); overflow:hidden}
-    .thumb img{width:100%; height:100%; object-fit:cover; display:block}
-    .card .content{padding:16px}
-    .card h3{margin:0 0 6px; font-size:18px}
-    .card p{margin:0; color:var(--muted); font-size:14px}
-
-    /* ===== Worship Together ===== */ 
-    .worship {
-      background: var(--soft);
-      padding: 50px 18px;
-    }
-    .worship .wrap { max-width: 1100px; margin: 0 auto; display: block; }
-    .worship h2 { margin: 0 0 10px; text-align:center; font-size:28px; }
-    .worship ul { 
-      padding: 0; 
-      margin: 0 auto; 
-      list-style: none; 
-      max-width:100%; 
-      font-size:15px; 
-    }
-    .worship li { 
-      margin: 8px 0; 
-      color: #334155; 
-      display: flex; 
-      align-items: center; 
-      gap: 8px; 
-      white-space: nowrap;   /* ✅ keeps text on one line */
-      overflow: hidden; 
-      text-overflow: ellipsis;
-    }
-    .worship strong {
-      font-weight: 600;
-    }
-
-    /* ===== Footer ===== */
-    footer{background:var(--brand-dark); color:#eaf6ee; padding:22px 18px;}
-    footer .wrap{max-width:1200px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr; gap:18px}
-    footer a{color:#eaf6ee}
-    @media (max-width:900px){ footer .wrap{grid-template-columns:1fr} }
-
-    /* ===== Mobile adjustments ===== */
-    @media (max-width:900px){
-      /* HERO */
-      .hero {
-        padding: 40px 16px 30px;
-      }
-      .hero .wrap {
-        grid-template-columns: 1fr;
-        gap: 18px;
-      }
-      .hero h1 {
-        font-size: 24px;
-        line-height: 1.25;
-        margin: .2em 0 .3em;
-      }
-      .hero p {
-        font-size: 15px;
-        line-height: 1.5;
-        margin: 0 0 16px;
-      }
-      .cta {
-        font-size: 15px;
-        padding: 10px 15px;
-      }
-      .subcta {
-        font-size: 14px;
-        margin-left: 10px;
-      }
-
-      /* SECTION */
-      .section {
-        padding: 36px 16px;
-      }
-      .section h2 {
-        font-size: 22px;
-        margin: 0 0 10px;
-      }
-      .section p.lead {
-        font-size: 14px;
-        line-height: 1.4;
-        margin: 0 auto 16px;
-      }
-
-      /* WORSHIP TOGETHER */
-      .worship {
-        padding: 36px 16px;
-      }
-      .worship h2 {
-        font-size: 20px;
-        margin: 0 0 8px;
-      }
-      .worship ul {
-        font-size: 13px;
-      }
-      .worship li {
-        gap: 6px;
-        font-size: 13px;
-        white-space: nowrap; /* ✅ force single line */
+	/* NAVIGATION */
+	nav {
+        background-color: #2e7d32;
+        padding: 0;
+        text-align: center;
+        width: calc(100% - 2in);  /* align with tables */
+        margin-left: 1in;
+        margin-right: 1in;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        border-radius: 6px;
         overflow: hidden;
-        text-overflow: ellipsis;
-      }
-
-      /* FOOTER */
-      footer {
-        font-size: 14px;
-        line-height: 1.4;
-      }
+        box-shadow: 0 3px 6px rgba(0,0,0,0.15);
     }
-  </style>
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        display: block; /* stack items vertically */
+    }
+
+    nav ul li a {
+        display: block;            /* makes link span full width */
+        padding: 14px 20px;
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        font-family: "Poppins", sans-serif;
+        transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    /* Hover effect across the full line */
+    nav ul li a:hover {
+        background-color: #1b5e20; /* darker green */
+        color: #fff;
+    }
+
+    h1 {
+        text-align: center;
+        margin: 30px 30px 30px;
+    }
+		
+    /* Day color themes */
+    .day1-header { background-color: #b71c1c; color: white; font-weight: bold; }
+    .day1-sub { background-color: #de2828; color: white; }
+	.song-title { background-color: #de2828; color: white; }
+
+    .day2-header { background-color: #1b5e20; color: white; font-weight: bold; }
+    .day2-sub { background-color: #2c9934; color: white; }
+	.song-title2 { background-color: #2c9934; color: white; }
+
+    .day3-header { background-color: #0d47a1; color: white; font-weight: bold; }
+    .day3-sub { background-color: #0d6ca1; color: white; }
+	.song-title3{ background-color: #0d6ca1; color: white; }
+	
+    colgroup col {
+        width: 16.66%;
+    }
+	
+	.home-button {
+        text-align: center;
+        margin: 40px 0;
+    }
+
+    .home-button a {
+        background: #2e7d32;
+        color: white;
+        padding: 12px 25px;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .home-button a:hover {
+        background-color: #555;
+    }
+</style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <header class="nav">
-    <div class="wrap">
-      <div class="brand">
-        <span class="dot"></span>
-        <span>NCJYC 2025 • Music Committee</span>
-      </div>
+<nav>
+    <ul>
+        <li><a href="index.html">HOME</a></li>
+    </ul>
+</nav>
 
-      <!-- Desktop links -->
-      <nav class="links" id="links">
-        <a href="Lineup.html">Worship Song Lineup</a>
-        <a href="Team.html">P&W Team - Churches</a>
-        <a href="special.html">Special Numbers</a>
-        <a href="checklist.html">Inventory</a>
-        <div class="dropdown" id="drop">
-          <span class="drop-btn" onclick="toggleDrop()">More ▾</span>
-          <div class="menu">
-            <a href="tasks.html">Tasks</a>
-            <a href="theme-song.html">Theme Song</a>
-          </div>
-        </div>
-      </nav>
+<h1>WORSHIP SONG LINEUP</h1>
 
-      <!-- Hamburger -->
-      <div class="hamburger" id="hamburger" onclick="toggleMobile()">
-        <span></span><span></span><span></span>
-      </div>
-    </div>
+<!-- Helper: Song list reused -->
+<!--
+1. New Name Written Down in Glory - https://www.youtube.com/watch?v=P7GP7aUg3Nk&list=RDP7GP7aUg3Nk&start_radio=1
+2. Sweetest Name I Know - https://www.youtube.com/watch?v=NoIw2CJ6lAQ&list=RDNoIw2CJ6lAQ&start_radio=1
+3. Thank You Jesus for the Blood - https://www.youtube.com/watch?v=dhU-Omwg2rU&list=RDdhU-Omwg2rU&start_radio=1
+4. I Believe - https://www.youtube.com/watch?v=tPf4G0OtAws&list=RDtPf4G0OtAws&start_radio=1
+-->
 
-    <!-- Mobile Panel -->
-    <div class="mobile-panel" id="mobile-panel">
-      <a href="Lineup.html">Worship Song Lineup</a>
-      <a href="Team.html">P&W Team - Churches</a>
-      <a href="special.html">Special Numbers</a>
-      <a href="checklist.html">Inventory</a>
-      <a href="tasks.html">Tasks</a>
-      <a href="theme-song.html">Theme Song</a>
-    </div>
-  </header>
+<!-- DAY 1 -->
+<table>
+    <colgroup><col><col><col><col><col><col></colgroup>
+    <tr><th colspan="6" class="day1-header">DAY 1 - DATE</th></tr>
+    <tr class="day1-sub"><th>Church Name</th><th colspan="2"></th><th colspan="3">Links</th></tr>
+    <tr>
+        <th rowspan="5">Morning</th>
+        <th colspan="2" class="song-title">Song Title</th>
+        <th class="song-title">YouTube</th>
+        <th class="song-title">Lyrics</th>
+        <th class="song-title">Arrangement</th>
+    </tr>
+    
+	<tr>
+      <td>1st Song</td>
+	  <td>New Name Written Down in Glory</td>
+	  <td><a href="https://www.youtube.com/watch?v=P7GP7aUg3Nk&list=RDP7GP7aUg3Nk&start_radio=1"><i class="fa-solid fa-music"></i></a></td>
+      <td><a href="theme-song.html"><i class="fa-solid fa-file-alt"></i></a></td>
+      <td></td>
+    </tr>
+	
+    <tr>
+      <td>2nd Song</td>
+      <td>Sweetest Name I Know</td>
+      <td><a href="https://www.youtube.com/watch?v=NoIw2CJ6lAQ&list=RDNoIw2CJ6lAQ&start_radio=1"><i class="fa-solid fa-music"></i></a></td>
+      <td><a href="theme-song.html"><i class="fa-solid fa-file-alt"></i></a></td>
+      <td></td>
+    </tr>
+	
+    <tr>
+      <td>3rd Song</td>
+      <td>Thank You Jesus for the Blood</td>
+      <td><a href="https://www.youtube.com/watch?v=dhU-Omwg2rU&list=RDdhU-Omwg2rU&start_radio=1"><i class="fa-solid fa-music"></i></a></td>
+      <td><a href="theme-song.html"><i class="fa-solid fa-file-alt"></i></a></td>
+      <td></td>
+    </tr>
+    
+	<tr>
+      <td>Response Song</td>
+      <td>I Believe</td>
+      <td><a href="https://www.youtube.com/watch?v=tPf4G0OtAws&list=RDtPf4G0OtAws&start_radio=1"><i class="fa-solid fa-music"></i></a></td>
+      <td><a href="theme-song.html"><i class="fa-solid fa-file-alt"></i></a></td>
+      <td></td>
+    </tr>
+</table>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="wrap">
-      <div>
-        <div class="eyebrow">One Team • One Heart • Spirit-led</div>
-        <h1>Welcome to Northern Churches Joint Youth Camp 2025 - Music Committee Portal!</h1>
-        <p>A central hub for NCJYC 2025 lineups, responsibilities, and resources—keeping everyone connected and prepared to serve.</p>
-        <a class="cta" href="theme-song.html">Youth Camp Theme Song</a>
-        <a class="subcta" href="tasks.html">Our Duties & Responsibilities →</a>
-      </div>
-      <div class="hero-visual">
-        <img src="1757140093260.png" alt="NCJYC 2025 banner">
-      </div>
-    </div>
-  </section>
+<!-- Day 1 Evening (copied) -->
+<table>
+    <colgroup><col><col><col><col><col><col></colgroup>
+    <tr class="day1-sub"><th>Church Name</th><th colspan="2"></th><th colspan="3">Links</th></tr>
+    <tr>
+        <th rowspan="5">Evening</th>
+        <th colspan="2" class="song-title">Song Title</th>
+        <th class="song-title">YouTube</th>
+        <th class="song-title">Lyrics</th>
+        <th class="song-title">Arrangement</th>
+    </tr>
+	<tr><td>1st Song</td><td>New Name Written Down in Glory</td><td><a href="https://www.youtube.com/watch?v=P7GP7aUg3Nk&list=RDP7GP7aUg3Nk&start_radio=1"><i class="fa-solid fa-music"></i></a></td><td><a href="theme-song.html"><i class="fa-solid fa-file-alt"></i></a></td><td></td></tr>
+	<tr><td>2nd Song</td><td>Sweetest Name I Know</td><td><a href="https://www.youtube.com/watch?v=NoIw2CJ6lAQ&list=RDNoIw2CJ6lAQ&start_radio=1"><i class="fa-solid fa-music"></i></a></td><td><a href="theme-song.html"><i class="fa-solid fa-file-alt"></i></a></td><td></td></tr>
+	<tr><td>3rd Song</td><td>Thank You Jesus for the Blood</td><td><a href="https://www.youtube.com/watch?v=dhU-Omwg2rU&list=RDdhU-Omwg2rU&start_radio=1"><i class="fa-solid fa-music"></i></a></td><td><a href="theme-song.html"><i class="fa-solid fa-file-alt"></i></a></td><td></td></tr>
+	<tr><td>Response Song</td><td>I Believe</td><td><a href="https://www.youtube.com/watch?v=tPf4G0OtAws&list=RDtPf4G0OtAws&start_radio=1"><i class="fa-solid fa-music"></i></a></td><td><a href="theme-song.html"><i class="fa-solid fa-file-alt"></i></a></td><td></td></tr>
+</table>
 
-  <!-- THEME FOCUS -->
-  <section class="section">
-    <div class="wrap">
-      <h2>Level Up!</h2>
-      <p class="lead">Discovering My True Identity</p>
+<!-- DAY 2 Morning -->
+<table>
+    <colgroup><col><col><col><col><col><col></colgroup>
+    <tr><th colspan="6" class="day2-header">DAY 2 - DATE</th></tr>
+    <tr class="day2-sub"><th>Church Name</th><th colspan="2"></th><th colspan="3">Links</th></tr>
+    <tr>
+        <th rowspan="5">Morning</th>
+        <th colspan="2" class="song-title2">Song Title</th>
+        <th class="song-title2">YouTube</th>
+        <th class="song-title2">Lyrics</th>
+        <th class="song-title2">Arrangement</th>
+    </tr>
+	<tr><td>1st Song</td><td>New Name Written Down in Glory</td><td><a href="https://www.youtube.com/watch?v=P7GP7aUg3Nk&list=RDP7GP7aUg3Nk&start_radio=1"><i class="fa-solid fa-music"></i></a></td><td><a href="theme-song.html"><i class="fa-solid fa-file-alt"></i></a></td><td></td></tr>
+	<tr><td>2nd Song</td><td>Sweetest Name I Know</td><td><a href="https://www.youtube.com/watch?v=NoIw2CJ6lAQ&list=RDNoIw2CJ6lAQ&start_radio=1"><i class="fa-solid fa-music"></i></a></td><td><a href="theme-song.html"><i class="fa-solid fa-file-alt"></i></a></td><td></td></tr>
+	<tr><td>3rd Song</td><td>Thank You Jesus for the Blood</td><td><a href="https://www.youtube.com/watch?v=dhU-Omwg2rU&list=RDdhU-Omwg2rU&start_radio=1"><i class="fa-solid fa-music"></i></a></td><td><a href="theme-song.html"><i class="fa-solid fa-file-alt"></i></a></td><td></td></tr>
+	<tr><td>Response Song</td><td>I Believe</td><td><a href="https://www.youtube.com/watch?v=tPf4G0OtAws&list=RDtPf4G0OtAws&start_radio=1"><i class="fa-solid fa-music"></i></a></td><td><a href="theme-song.html"><i class="fa-solid fa-file-alt"></i></a></td><td></td></tr>
+</table>
 
-      <div class="grid">
-        <article class="card">
-          <div class="thumb">
-            <img src="Photo1.jpg" alt="Understanding Identity">
-          </div>
-          <div class="content">
-            <h3>Understanding who we are in Christ</h3>
-            <p>Discovering our true identity as children of God.</p>
-          </div>
-        </article>
+<!-- DAY 2 Evening -->
+<table>
+    <colgroup><col><col><col><col><col><col></colgroup>
+    <tr class="day2-sub"><th>Church Name</th><th colspan="2"></th><th colspan="3">Links</th></tr>
+    <tr>
+        <th rowspan="5">Evening</th>
+        <th colspan="2" class="song-title2">Song Title</th>
+        <th class="song-title2">YouTube</th>
+        <th class="song-title2">Lyrics</th>
+        <th class="song-title2">Arrangement</th>
+    </tr>
+	<tr><td>1st Song</td><td>New Name Written Down in Glory</td><td><a href="https://www.youtube.com/watch?v=P7GP7aUg3Nk&list=RDP7GP7aUg3Nk&start_radio=1"><i class="fa-solid fa-music"></i></a></td><td><a href="theme-song.html"><i class="fa-solid fa-file-alt"></i></a></td><td></td></tr>
+	<tr><td>2nd Song</td><td>Sweetest Name I Know</td><td><a href="https://www.youtube.com/watch?v=NoIw2CJ6lAQ&list=RDNoIw2CJ6lAQ&start_radio=1"><i class="fa-solid fa-music"></i></a></td><td><a href="theme-song.html"><i class="fa-solid fa-file-alt"></i></a></td><td></td></tr>
+	<tr><td>3rd Song</td><td>Thank You Jesus for the Blood</td><td><a href="https://www.youtube.com/watch?v=dhU-Omwg2rU&list=RDdhU-Omwg2rU&start_radio=1"><i class="fa-solid fa-music"></i></a></td><td><a href="theme-song.html"><i class="fa-solid fa-file-alt"></i></a></td><td></td></tr>
+	<tr><td>Response Song</td><td>I Believe</td><td><a href="https://www.youtube.com/watch?v=tPf4G0OtAws&list=RDtPf4G0OtAws&start_radio=1"><i class="fa-solid fa-music"></i></a></td><td><a href="theme-song.html"><i class="fa-solid fa-file-alt"></i></a></td><td></td></tr>
+</table>
 
-        <article class="card">
-          <div class="thumb">
-            <img src="Photo2.jpeg" alt="Rejecting False Identities">
-          </div>
-          <div class="content">
-            <h3>Rejecting false identities given by the world</h3>
-            <p>Letting go of labels that don’t come from God.</p>
-          </div>
-        </article>
+<!-- DAY 3 Morning -->
+<table>
+    <colgroup><col><col><col><col><col><col></colgroup>
+    <tr><th colspan="6" class="day3-header">DAY 3 - DATE</th></tr>
+    <tr class="day3-sub"><th>Church Name</th><th colspan="2"></th><th colspan="3">Links</th></tr>
+    <tr>
+        <th rowspan="5">Morning</th>
+        <th colspan="2" class="song-title3">Song Title</th>
+        <th class="song-title3">YouTube</th>
+        <th class="song-title3">Lyrics</th>
+        <th class="song-title3">Arrangement</th>
+    </tr>
+	<tr><td>1st Song</td><td>New Name Written Down in Glory</td><td><a href="https://www.youtube.com/watch?v=P7GP7aUg3Nk&list=RDP7GP7aUg3Nk&start_radio=1"><i class="fa-solid fa-music"></i></a></td><td><a href="theme-song.html"><i class="fa-solid fa-file-alt"></i></a></td><td></td></tr>
+	<tr><td>2nd Song</td><td>Sweetest Name I Know</td><td><a href="https://www.youtube.com/watch?v=NoIw2CJ6lAQ&list=RDNoIw2CJ6lAQ&start_radio=1"><i class="fa-solid fa-music"></i></a></td><td><a href="theme-song.html"><i class="fa-solid fa-file-alt"></i></a></td><td></td></tr>
+	<tr><td>3rd Song</td><td>Thank You Jesus for the Blood</td><td><a href="https://www.youtube.com/watch?v=dhU-Omwg2rU&list=RDdhU-Omwg2rU&start_radio=1"><i class="fa-solid fa-music"></i></a></td><td><a href="theme-song.html"><i class="fa-solid fa-file-alt"></i></a></td><td></td></tr>
+	<tr><td>Response Song</td><td>I Believe</td><td><a href="https://www.youtube.com/watch?v=tPf4G0OtAws&list=RDtPf4G0OtAws&start_radio=1"><i class="fa-solid fa-music"></i></a></td><td><a href="theme-song.html"><i class="fa-solid fa-file-alt"></i></a></td><td></td></tr>
+</table>
 
-        <article class="card">
-          <div class="thumb">
-            <img src="photo3.jpg" alt="Living Boldly">
-          </div>
-          <div class="content">
-            <h3>Living boldly as children of God</h3>
-            <p>Walking with courage, faith, and purpose in Christ.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+<!-- DAY 3 Evening -->
+<table>
+    <colgroup><col><col><col><col><col><col></colgroup>
+    <tr class="day3-sub"><th>Church Name</th><th colspan="2"></th><th colspan="3">Links</th></tr>
+    <tr>
+        <th rowspan="5">Evening</th>
+        <th colspan="2" class="song-title3">Song Title</th>
+        <th class="song-title3">YouTube</th>
+        <th class="song-title3">Lyrics</th>
+        <th class="song-title3">Arrangement</th>
+    </tr>
+	<tr><td>1st Song</td><td>New Name Written Down in Glory</td><td><a href="https://www.youtube.com/watch?v=P7GP7aUg3Nk&list=RDP7GP7aUg3Nk&start_radio=1"><i class="fa-solid fa-music"></i></a></td><td><a href="theme-song.html"><i class="fa-solid fa-file-alt"></i></a></td><td></td></tr>
+	<tr><td>2nd Song</td><td>Sweetest Name I Know</td><td><a href="https://www.youtube.com/watch?v=NoIw2CJ6lAQ&list=RDNoIw2CJ6lAQ&start_radio=1"><i class="fa-solid fa-music"></i></a></td><td><a href="theme-song.html"><i class="fa-solid fa-file-alt"></i></a></td><td></td></tr>
+	<tr><td>3rd Song</td><td>Thank You Jesus for the Blood</td><td><a href="https://www.youtube.com/watch?v=dhU-Omwg2rU&list=RDdhU-Omwg2rU&start_radio=1"><i class="fa-solid fa-music"></i></a></td><td><a href="theme-song.html"><i class="fa-solid fa-file-alt"></i></a></td><td></td></tr>
+	<tr><td>Response Song</td><td>I Believe</td><td><a href="https://www.youtube.com/watch?v=tPf4G0OtAws&list=RDtPf4G0OtAws&start_radio=1"><i class="fa-solid fa-music"></i></a></td><td><a href="theme-song.html"><i class="fa-solid fa-file-alt"></i></a></td><td></td></tr>
+</table>
 
-  <!-- Worship Together -->
-  <section class="worship">
-    <div class="wrap">
-      <div>
-        <h2>Worship Together!</h2>
-        <ul>
-          <li>🌱 <strong>Rooted in Worship:</strong> With Christ as our source, our music and plans take shape.</li>
-          <li>🙌️ <strong>Ready to Serve:</strong> Prayer at the foundation, passion in the heart, excellence in the offering.</li>
-          <li>📣 <strong>Connected as One:</strong> Together in step, together in service, together in Christ.</li>
-          <li>💛 <strong>United in Christ:</strong> Different gifts, one body, serving with one heart.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+<div class="home-button">
+    <a href="index.html">← Back to Home</a>
+</div>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="wrap">
-      <div>
-        <strong>NCJYC 2025 • Music Committee</strong><br>
-        Central hub for Praise & Worship planning.
-      </div>
-      <div>
-        <strong>Contact</strong><br>
-        music.committee.ncjyc2025@gmail.com
-      </div>
-    </div>
-  </footer>
-
-  <!-- JS -->
-  <script>
-    function toggleDrop() {
-      document.getElementById('drop').classList.toggle('open');
-    }
-    function toggleMobile() {
-      document.getElementById('mobile-panel').classList.toggle('open');
-    }
-    // Close desktop dropdown when clicking outside
-    document.addEventListener('click', function(e) {
-      const drop = document.getElementById('drop');
-      if (!drop.contains(e.target)) drop.classList.remove('open');
-    });
-  </script>
 </body>
 </html>
