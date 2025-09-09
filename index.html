@@ -145,9 +145,26 @@
     }
     .worship .wrap { max-width: 1100px; margin: 0 auto; display: block; }
     .worship h2 { margin: 0 0 10px; text-align:center; font-size:28px; }
-    .worship ul { padding: 0; margin: 0 auto; list-style: none; max-width:720px; font-size:16px; }
-    .worship li { margin: 10px 0; color: #334155; display: flex; align-items: flex-start; gap: 10px; }
-    .worship .bag { display: none; }
+    .worship ul { 
+      padding: 0; 
+      margin: 0 auto; 
+      list-style: none; 
+      max-width:100%; 
+      font-size:15px; 
+    }
+    .worship li { 
+      margin: 8px 0; 
+      color: #334155; 
+      display: flex; 
+      align-items: center; 
+      gap: 8px; 
+      white-space: nowrap;   /* ✅ keeps text on one line */
+      overflow: hidden; 
+      text-overflow: ellipsis;
+    }
+    .worship strong {
+      font-weight: 600;
+    }
 
     /* ===== Footer ===== */
     footer{background:var(--brand-dark); color:#eaf6ee; padding:22px 18px;}
@@ -207,12 +224,14 @@
         margin: 0 0 8px;
       }
       .worship ul {
-        font-size: 14px;
-        line-height: 1.4;
+        font-size: 13px;
       }
       .worship li {
-        margin: 6px 0;
-        gap: 8px;
+        gap: 6px;
+        font-size: 13px;
+        white-space: nowrap; /* ✅ force single line */
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       /* FOOTER */
