@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Music Committee Responsibilities - NCJYC 2025</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- ✅ ensures mobile scaling -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     body {
@@ -90,12 +90,22 @@
       display: flex;
       justify-content: center;
     }
-    .hero-img img {
-      width: 100%;
-      max-width: 420px;
-      border-radius: 12px;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
-      object-fit: cover;
+
+    /* LOGO CIRCLE */
+    .logo-circle {
+      width: 220px;
+      height: 220px;
+      background-color: #e8f5e9; /* circle background color */
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo-circle img {
+      width: 80%; /* scale logo inside the circle */
+      height: auto;
     }
 
     /* RESPONSIBILITIES SECTION */
@@ -147,8 +157,9 @@
       .hero-text p {
         font-size: 16px;
       }
-      .hero-img img {
-        max-width: 85%;
+      .logo-circle {
+        width: 180px;
+        height: 180px;
       }
       .responsibilities {
         margin: 40px auto;
@@ -177,7 +188,9 @@
       <p>Serving through music, coordination, and worship.</p>
     </div>
     <div class="hero-img">
-      <img src="1757140093260.png" alt="Music Committee">
+      <div class="logo-circle">
+        <img src="ncjyc-logo.png" alt="Music Committee">
+      </div>
     </div>
   </section>
 
