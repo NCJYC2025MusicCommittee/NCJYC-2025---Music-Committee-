@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -44,6 +44,11 @@
     }
     .brand{
       display:flex; align-items:center; gap:10px; font-weight:700; color:var(--brand-dark);
+    }
+    .brand img {
+      height: 50px;
+      width: auto;
+      display:block;
     }
     .brand .dot{width:12px; height:12px; border-radius:50%; background:var(--accent)}
 
@@ -158,7 +163,7 @@
       display: flex; 
       align-items: center; 
       gap: 8px; 
-      white-space: nowrap;   /* ✅ keeps text on one line */
+      white-space: nowrap;   
       overflow: hidden; 
       text-overflow: ellipsis;
     }
@@ -174,7 +179,6 @@
 
     /* ===== Mobile adjustments ===== */
     @media (max-width:900px){
-      /* HERO */
       .hero {
         padding: 40px 16px 30px;
       }
@@ -200,8 +204,6 @@
         font-size: 14px;
         margin-left: 10px;
       }
-
-      /* SECTION */
       .section {
         padding: 36px 16px;
       }
@@ -214,8 +216,6 @@
         line-height: 1.4;
         margin: 0 auto 16px;
       }
-
-      /* WORSHIP TOGETHER */
       .worship {
         padding: 36px 16px;
       }
@@ -229,12 +229,10 @@
       .worship li {
         gap: 6px;
         font-size: 13px;
-        white-space: nowrap; /* ✅ force single line */
+        white-space: nowrap; 
         overflow: hidden;
         text-overflow: ellipsis;
       }
-
-      /* FOOTER */
       footer {
         font-size: 14px;
         line-height: 1.4;
@@ -248,7 +246,7 @@
   <header class="nav">
     <div class="wrap">
       <div class="brand">
-        <span class="dot"></span>
+        <img src="ncjyc-logo.png" alt="NCJYC Logo">
         <span>NCJYC 2025 • Music Committee</span>
       </div>
 
@@ -385,8 +383,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
