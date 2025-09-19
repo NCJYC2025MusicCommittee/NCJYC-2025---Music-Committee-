@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Inventory — NCJYC Music Committee</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --brand:#2e7d32;
+      --bg:#f6fbf6;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --radius:12px;
+      --shadow: 0 10px 30px rgba(16,24,40,0.08);
+    }
+    *{box-sizing:border-box}
+    body{
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      margin:0;
+      background: linear-gradient(180deg, #f7faf7 0%, #eef9ef 100%);
+      color:#0f172a;
+      padding:28px;
+      min-height:100vh;
+    }
+
+    .container{
+      max-width:600px;
+      margin: 0 auto;
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:22px;
+    }
+    .brand{ display:flex; gap:10px; align-items:center; }
+    .brand img{
+      width:46px; height:46px; border-radius:10px;
+      box-shadow:var(--shadow);
+    }
+    h1{ font-size:20px; margin:0; }
+    p.lead{ margin:6px 0 0; color:var(--muted); font-size:14px; }
+
+    /* unique home button */
+    .home-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      text-decoration:none;
+      background: linear-gradient(135deg,#4caf50,#2e7d32);
+      color:#fff;
+      font-size:14px;
+      font-weight:600;
+      padding:10px 16px;
+      border-radius:30px;
+      box-shadow:0 8px 16px rgba(46,125,50,0.25);
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    .home-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 12px 20px rgba(46,125,50,0.3);
+    }
+
+    .card {
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:var(--shadow);
+      border: 1px solid rgba(16,24,40,0.03);
+    }
+
+    .access-left h2{
+      margin:0 0 10px;
+      color: #4caf50;
+    }
+    .access-left p { margin:0 0 18px; color:var(--muted); }
+
+    /* Login box */
+    label{ display:block; font-size:13px; color:#374151; margin-bottom:6px; }
+    input[type="text"], input[type="password"]{
+      width:100%;
+      padding:10px 12px;
+      border-radius:8px;
+      border:1px solid #e6e9ec;
+      font-size:14px;
+      margin-bottom:12px;
+    }
+    button {
+      background:var(--brand);
+      color:white;
+      border:none;
+      padding:10px 14px;
+      border-radius:8px;
+      font-weight:600;
+      cursor:pointer;
+    }
+    button:hover { opacity:.9; }
+
+    #message {
+      margin-top:10px;
+      color:#b91c1c;
+      display:none;
+      font-size:13px;
+    }
+
+    /* === Mobile tweaks === */
+    @media (max-width:600px) {
+      body {padding:16px;}
+      header {
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .brand img{width:40px;height:40px;}
+      h1{font-size:18px;}
+      p.lead{font-size:13px;}
+      .home-btn {
+        width:100%;
+        justify-content:center;
+        margin-top:10px;
+        font-size:15px;
+      }
+      .card {
+        padding:18px;
+      }
+      input[type="text"], input[type="password"] {
+        font-size:15px;
+      }
+      button {
+        width:100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <img src="ncjyc-logo.png" alt="NCJYC Logo">
+        <div>
+          <h1>Inventory</h1>
+          <p class="lead">NCJYC 2025 • Music Committee</p>
+        </div>
+      </div>
+      <a href="index.html" class="home-btn">Home</a>
+    </header>
+
+    <main class="card">
+      <div class="access-left">
+        <h2>Access Denied</h2>
+        <p>You do not currently have access to view this page. Please log in to continue.</p>
+      </div>
+
+      <label for="username">Username</label>
+      <input id="username" type="text" placeholder="Username" autocomplete="username">
+
+      <label for="password">Password</label>
+      <input id="password" type="password" placeholder="Password" autocomplete="current-password">
+
+      <button id="loginBtn">Sign in</button>
+      <div id="message"></div>
+    </main>
+  </div>
+
+  <script>
+    const DEMO_USER = "ncjycmusiccommittee";
+    const DEMO_PASS = "ncjycmusiccommittee";
+
+    const loginBtn = document.getElementById('loginBtn');
+    const msg = document.getElementById('message');
+
+    function showMessage(text, color = '#b91c1c') {
+      msg.style.display = 'block';
+      msg.style.color = color;
+      msg.textContent = text;
+      setTimeout(() => { msg.style.display = 'none'; }, 3500);
+    }
+
+    loginBtn.addEventListener('click', function () {
+      const u = document.getElementById('username').value.trim();
+      const p = document.getElementById('password').value;
+
+      if (!u || !p) {
+        showMessage('Please enter both username and password.');
+        return;
+      }
+
+      if (u === DEMO_USER && p === DEMO_PASS) {
+        window.location.href = "inventory.html"; // create your inventory.html later
+      } else {
+        showMessage('Incorrect username or password.');
+      }
+    });
+
+    document.getElementById('password').addEventListener('keydown', function(e){
+      if (e.key === 'Enter') loginBtn.click();
+    });
+    document.getElementById('username').addEventListener('keydown', function(e){
+      if (e.key === 'Enter') document.getElementById('password').focus();
+    });
+  </script>
+</body>
+</html>
