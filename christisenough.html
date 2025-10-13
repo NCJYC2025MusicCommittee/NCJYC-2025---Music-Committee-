@@ -1,0 +1,224 @@
+<!DOCTYPE html>  
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sacobia Baptist Church</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin:0;
+    padding:0;
+    background:#f9f9f9;
+    color:#333;
+}
+
+/* Top bar */
+.top-bar {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:10px 20px;
+    background:#fff;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+.top-left {
+    display:flex;
+    align-items:center;
+}
+.top-left a {
+    background:#2e7d32;
+    color:white;
+    padding:8px 15px;
+    text-decoration:none;
+    border-radius:5px;
+    font-weight:bold;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+}
+.top-left a:hover {
+    background:#1b5e20;
+}
+.top-bar h1 {
+    margin:0;
+    font-size:1.2rem;
+    color:#2e7d32;
+    flex:1;
+    text-align:center;
+}
+.top-bar img.logo {
+    width:60px;
+    height:auto;
+}
+
+/* Video container – rectangular banner */
+.video-container {
+    position: relative;
+    padding-bottom: 40%; /* rectangular */
+    height: 0;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 900px;
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border:none;
+}
+
+/* Song details */
+.song-section {
+    width:90%;
+    max-width:900px;
+    margin:20px auto;
+    background:#fff;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.1);
+}
+.song-section h2 {
+    margin-top:0;
+    color:#1b5e20;
+    text-align:center;
+}
+.song-section pre {
+    white-space: pre-wrap;
+    font-family: inherit;
+    line-height:1.6;
+    margin:0;
+}
+
+/* Bottom back button */
+.bottom-button {
+    text-align:center;
+    margin:40px 0;
+}
+.bottom-button a {
+    background:#2e7d32;
+    color:white;
+    padding:12px 25px;
+    text-decoration:none;
+    border-radius:5px;
+    font-weight:bold;
+    display:inline-block;
+}
+.bottom-button a i {
+    margin-right:8px;
+}
+.bottom-button a:hover {
+    background:#1b5e20;
+}
+
+/* Responsive tweaks */
+@media (max-width:600px){
+    .top-bar {
+        flex-direction:column;
+        gap:10px;
+    }
+    .top-bar h1 {
+        font-size:1rem;
+        text-align:center;
+    }
+    .top-bar img.logo {
+        width:50px;
+    }
+    .video-container { padding-bottom:56.25%; }
+}
+</style>
+</head>
+<body>
+
+<!-- Top bar with Home and Logo -->
+<div class="top-bar">
+  <div class="top-left">
+    <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+  </div>
+  <h1>Sacobia Baptist Church</h1>
+  <img src="ncjyc-logo.png" alt="NCJYC Logo" class="logo">
+</div>
+
+<!-- YouTube Video -->
+<div class="video-container">
+    <iframe   src="https://www.youtube.com/embed/teUxQpnhezY"  
+            title="Christ Is Enough - Hillsong Worship" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen></iframe>
+</div>
+
+<!-- Song Title and Lyrics -->
+<div class="song-section">
+    <h2>Christ Is Enough - Hillsong Worship</h2>
+    <pre>
+Christ is my reward
+And all of my devotion
+Now there's nothing in this world
+That could ever satisfy
+
+Through every trial, my soul will sing
+No turning back, I've been set free
+
+Christ is enough for me
+Christ is enough for me
+Everything I need is in You
+Everything I need
+
+Christ my all in all
+The joy of my salvation
+And this hope will never fail
+Heaven is our home
+
+Through every storm, my soul will sing
+Jesus is here, to God be the glory
+
+Christ is enough for me
+Christ is enough for me
+Everything I need is in You
+Everything I need
+
+I have decided to follow Jesus
+No turning back, no turning back
+I have decided to follow Jesus
+No turning back, no turning back (the cross)
+
+The cross before me, the world behind me
+No turning back, no turning back
+The cross before me, the world behind me
+No turning back, no turning back
+
+Christ is enough for me
+Christ is enough for me
+Everything I need is in You
+Everything I need (Christ is enough)
+
+Christ is enough for me
+Christ is enough for me
+Everything I need is in You
+Everything I need
+
+I have decided to follow Jesus
+No turning back, no turning back
+I have decided to follow Jesus
+No turning back, no turning back (I have decided)
+
+I have decided to follow Jesus
+No turning back, no turning back
+I have decided to follow Jesus
+No turning back, no turning back
+    </pre>
+</div>
+
+<!-- Back button at bottom -->
+<div class="bottom-button">
+    <a href="Lineup.html"><i class="fa-solid fa-arrow-left"></i> Back</a>
+</div>
+
+</body>
+</html>
