@@ -15,29 +15,30 @@
       line-height: 1.6;
     }
 
-    /* HOME BUTTON */
+    /* 🏠 HOME BUTTON */
     .top-bar {
       position: fixed;
-      top: 20px;
-      right: 30px;
+      top: 15px;
+      right: 15px;
       z-index: 10;
     }
     .home-btn {
-      padding: 10px 20px;
+      padding: 10px 18px;
       background: linear-gradient(135deg, #2e7d32, #4caf50);
       color: #fff;
       text-decoration: none;
       border-radius: 30px;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 500;
       transition: all 0.3s ease;
+      white-space: nowrap;
     }
     .home-btn:hover {
       background: linear-gradient(135deg, #1b5e20, #388e3c);
       transform: translateY(-2px);
     }
 
-    /* HERO SECTION (TOP) */
+    /* 🌿 HERO SECTION */
     .hero {
       display: flex;
       align-items: center;
@@ -46,6 +47,7 @@
       margin: 0 auto;
       padding: 120px 20px 60px;
       position: relative;
+      gap: 20px;
     }
     .hero::before {
       content: "";
@@ -74,7 +76,6 @@
       padding-right: 40px;
     }
     .hero-text h1 {
-      font-family: "Poppins", sans-serif;
       font-size: 42px;
       font-weight: 600;
       color: #2e7d32;
@@ -91,24 +92,23 @@
       justify-content: center;
     }
 
-    /* LOGO CIRCLE */
+    /* 🌀 LOGO CIRCLE */
     .logo-circle {
       width: 220px;
       height: 220px;
-      background-color: #e8f5e9; /* circle background color */
+      background-color: #e8f5e9;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
     }
-
     .logo-circle img {
-      width: 80%; /* scale logo inside the circle */
+      width: 80%;
       height: auto;
     }
 
-    /* RESPONSIBILITIES SECTION */
+    /* 📋 RESPONSIBILITIES SECTION */
     .responsibilities {
       max-width: 1100px;
       margin: 60px auto;
@@ -140,12 +140,12 @@
       color: #444;
     }
 
-    /* ✅ MOBILE FRIENDLY */
+    /* 📱 MOBILE FRIENDLY */
     @media (max-width: 768px) {
       .hero {
         flex-direction: column;
         text-align: center;
-        padding: 80px 20px 40px;
+        padding: 90px 20px 40px;
       }
       .hero-text {
         padding-right: 0;
@@ -158,8 +158,12 @@
         font-size: 16px;
       }
       .logo-circle {
-        width: 180px;
-        height: 180px;
+        width: 160px;
+        height: 160px;
+      }
+      .home-btn {
+        font-size: 13px;
+        padding: 8px 15px;
       }
       .responsibilities {
         margin: 40px auto;
@@ -170,6 +174,16 @@
       }
       .card p {
         font-size: 14px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .hero-text h1 {
+        font-size: 24px;
+      }
+      .logo-circle {
+        width: 140px;
+        height: 140px;
       }
     }
   </style>
